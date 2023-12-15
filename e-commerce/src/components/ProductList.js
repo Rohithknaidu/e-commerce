@@ -1,8 +1,10 @@
 // src/components/ProductList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProductCard from './ProductCard'; // Import the ProductCard component
-import './ProductList.css'; // Import the CSS file
+import { Route, Routes } from 'react-router-dom';
+import ProductCard from './ProductCard';
+import ProductDetailPage from './ProductDetailPage'; // Import the new component
+import './ProductList.css';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -25,6 +27,11 @@ const ProductList = () => {
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
+
+      {/* Add a Route for the ProductDetailPage */}
+      <Routes>
+        <Route path="/product/:id" element={<ProductDetailPage products={products} />} />
+      </Routes>
     </div>
   );
 };

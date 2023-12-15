@@ -1,9 +1,8 @@
 // src/App.js
-import React, { useState} from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes,  useNavigate } from 'react-router-dom';
 import ProductList from './components/ProductList';
-import ProductDetail from './component/ProductDetail';
-import { useParams } from 'react-router-dom';
+import ProductDetailPage from './components/ProductDetailPage';
 import './App.css';
 
 function App() {
@@ -41,20 +40,6 @@ const HomePage = () => {
         <button onClick={handleSearch}>Search</button>
       </div>
       <ProductList />
-    </div>
-  );
-};
-
-const ProductDetailPage = () => {
-  const { id } = useParams();
-  console.log('Product ID:', id);
-  const product = {}; // Fetch product details using the ID
-  console.log('Fetched Product:', product);
-
-  return (
-    <div>
-      <h1>Product Detail Page</h1>
-      <ProductDetail product={product} />
     </div>
   );
 };
